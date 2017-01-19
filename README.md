@@ -70,3 +70,18 @@ public class InteractorErrorExample implements InteractorError {
   }
 }
 ```
+
+## Gradle dependency
+```gradle
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+```gradle
+dependencies {
+	        compile 'com.github.Gigigo-Android-Devs:gigigo-interactor-executor-library:1.0.0'
+	}
+```
