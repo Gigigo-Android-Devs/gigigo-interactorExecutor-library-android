@@ -85,7 +85,7 @@ allprojects {
 ```
 ```gradle
 dependencies {
-	        compile 'com.github.Gigigo-Android-Devs:gigigo-interactor-executor-library:1.0.0'
+	        compile 'com.github.Gigigo-Android-Devs:gigigo-interactorExecutor-library-android:1.0.1'
 	}
 ```
 
