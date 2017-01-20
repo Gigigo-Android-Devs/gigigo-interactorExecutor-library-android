@@ -1,9 +1,9 @@
 package com.gigigo.interactorexecutor;
 
-import com.gigigo.interactorexecutor.domain.interactors.Interactor;
-import com.gigigo.interactorexecutor.domain.interactors.InteractorResponse;
-import com.gigigo.interactorexecutor.domain.responses.BusinessError;
-import com.gigigo.interactorexecutor.domain.responses.BusinessObject;
+import com.gigigo.interactorexecutor.interactors.Interactor;
+import com.gigigo.interactorexecutor.interactors.InteractorResponse;
+import com.gigigo.interactorexecutor.responses.BusinessError;
+import com.gigigo.interactorexecutor.responses.BusinessObject;
 
 public class InteractorExample implements Interactor<InteractorResponse<Boolean>> {
 

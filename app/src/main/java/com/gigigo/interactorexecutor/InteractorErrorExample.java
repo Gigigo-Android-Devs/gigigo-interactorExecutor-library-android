@@ -1,7 +1,7 @@
 package com.gigigo.interactorexecutor;
 
-import com.gigigo.interactorexecutor.domain.interactors.InteractorError;
-import com.gigigo.interactorexecutor.domain.responses.BusinessError;
+import com.gigigo.interactorexecutor.interactors.InteractorError;
+import com.gigigo.interactorexecutor.responses.BusinessError;
 
 public class InteractorErrorExample implements InteractorError {
 

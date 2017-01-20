@@ -9,7 +9,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/interactorexecutorlibrary" />
+            <option value="$PROJECT_DIR$/interactorexecutor-domain" />
+            <option value="$PROJECT_DIR$/interactorexecutor-invoker" />
+            <option value="$PROJECT_DIR$/interactorexecutor-presentation" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

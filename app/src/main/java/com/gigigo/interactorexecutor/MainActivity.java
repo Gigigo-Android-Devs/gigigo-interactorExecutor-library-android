@@ -1,17 +1,16 @@
 package com.gigigo.interactorexecutor;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
-import com.gigigo.interactorexecutor.domain.interactors.InteractorError;
-import com.gigigo.interactorexecutor.domain.invoker.InteractorInvokerImp;
-import com.gigigo.interactorexecutor.domain.invoker.InteractorOutputThreadFactory;
-import com.gigigo.interactorexecutor.domain.invoker.InteractorPriorityBlockingQueue;
-import com.gigigo.interactorexecutor.domain.invoker.LogExceptionHandler;
-import com.gigigo.interactorexecutor.domain.invoker.PriorizableThreadPoolExecutor;
-import com.gigigo.interactorexecutor.presenter.base.invoker.InteractorExecution;
-import com.gigigo.interactorexecutor.presenter.base.invoker.InteractorResult;
+import com.gigigo.interactorexecutor.base.invoker.InteractorExecution;
+import com.gigigo.interactorexecutor.base.invoker.InteractorResult;
+import com.gigigo.interactorexecutor.invoker.InteractorInvokerImp;
+import com.gigigo.interactorexecutor.invoker.InteractorOutputThreadFactory;
+import com.gigigo.interactorexecutor.invoker.InteractorPriorityBlockingQueue;
+import com.gigigo.interactorexecutor.invoker.LogExceptionHandler;
+import com.gigigo.interactorexecutor.invoker.PriorizableThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,40 +23,40 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    TextView textView = (TextView) findViewById(R.id.textview);
+    final TextView textView = (TextView) findViewById(R.id.textview);
 
     InteractorPriorityBlockingQueue blockingQueue = new InteractorPriorityBlockingQueue(100);
 
-    InteractorOutputThreadFactory threadFactory =
-        new InteractorOutputThreadFactory();
+    InteractorOutputThreadFactory threadFactory = new InteractorOutputThreadFactory();
 
     PriorizableThreadPoolExecutor executorService =
         new PriorizableThreadPoolExecutor(CONCURRENT_INTERACTORS, CONCURRENT_INTERACTORS, 0L,
             TimeUnit.MILLISECONDS, blockingQueue, threadFactory);
 
-    InteractorInvokerImp interactorInvoker = new InteractorInvokerImp(executorService, new LogExceptionHandler());
+    InteractorInvokerImp interactorInvoker =
+        new InteractorInvokerImp(executorService, new LogExceptionHandler());
 
-
-    textView.setText("Prueba: ");
+    textView.setText("TEST-->");
 
     InteractorExample interactor = new InteractorExample();
 
-    new InteractorExecution<>(interactor)
-    .result(new InteractorResult<Boolean>() {
+    new InteractorExecution<>(interactor).result(new InteractorResult<Boolean>() {
 
       @Override public void onResult(Boolean result) {
         Log.d(TAG, "onSuccess: " + result);
+        textView.append(" async onSuccess ");
       }
-    })
-    .error(InteractorErrorExample.class, new InteractorResult<InteractorErrorExample>() {
+    }).error(InteractorErrorExample.class, new InteractorResult<InteractorErrorExample>() {
       @Override public void onResult(InteractorErrorExample result) {
         Log.d(TAG, "onError: " + result.toString());
+        textView.append(" async onError ");
       }
     }).execute(interactorInvoker);
 
-
-    for (int i=0; i < 9999; i++) {
-      System.out.println("Hilo principal:" + i);
+    textView.append(" main start ");
+    for (int i = 0; i < 9999; i++) {
+      System.out.println("Main thread:" + i);
     }
+    textView.append(" main end ");
   }
 }

@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/InteractorExecutor.iml" filepath="$PROJECT_DIR$/InteractorExecutor.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/interactorexecutorlibrary/interactorexecutorlibrary.iml" filepath="$PROJECT_DIR$/interactorexecutorlibrary/interactorexecutorlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gigigo-interactorExecutor-library-android.iml" filepath="$PROJECT_DIR$/gigigo-interactorExecutor-library-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/interactorexecutor-domain/interactorexecutor-domain.iml" filepath="$PROJECT_DIR$/interactorexecutor-domain/interactorexecutor-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/interactorexecutor-invoker/interactorexecutor-invoker.iml" filepath="$PROJECT_DIR$/interactorexecutor-invoker/interactorexecutor-invoker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/interactorexecutor-presentation/interactorexecutor-presentation.iml" filepath="$PROJECT_DIR$/interactorexecutor-presentation/interactorexecutor-presentation.iml" />
     </modules>
   </component>
 </project>

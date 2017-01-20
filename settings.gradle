@@ -1,1 +1,2 @@
-include ':app', ':interactorexecutorlibrary'
+include ':app', ':interactorexecutor-domain', ':interactorexecutor-invoker',
+    ':interactorexecutor-presentation'
