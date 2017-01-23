@@ -4,6 +4,11 @@ android {
   compileSdkVersion rootProject.ext.androidCompileSdkVersion
   buildToolsVersion rootProject.ext.androidBuildToolsVersion
 
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_7 //java7
+    targetCompatibility JavaVersion.VERSION_1_7 //java7
+  }
+
   defaultConfig {
     applicationId "com.gigigo.interactorexecutor_demo"
     minSdkVersion rootProject.ext.androidMinSdkVersion
