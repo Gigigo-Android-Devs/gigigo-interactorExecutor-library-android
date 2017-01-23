@@ -29,8 +29,5 @@ dependencies {
 
   compile rootProject.ext.modules.interactorExecutorInvoker
 
-  androidTestCompile(rootProject.ext.testLibraries.espresso, {
-    exclude group: 'com.android.support', module: 'support-annotations'
-  })
   testCompile rootProject.ext.testLibraries.junit
 }
