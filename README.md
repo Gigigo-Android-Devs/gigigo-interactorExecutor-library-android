@@ -1,6 +1,6 @@
 # gigigo-interactor-executor-library
-[![Build Status](https://travis-ci.org/Gigigo-Android-Devs/gigigo-interactor-executor-library.svg?branch=master)](https://travis-ci.org/Gigigo-Android-Devs/gigigo-interactor-executor-library.svg?branch=master)
-[![](https://jitpack.io/v/Gigigo-Android-Devs/gigigo-interactor-executor-library.svg)](https://jitpack.io/#Gigigo-Android-Devs/gigigo-interactor-executor-library)
+[![Build Status](https://travis-ci.org/Gigigo-Android-Devs/gigigo-interactorExecutor-library-android.svg?branch=develop)](https://travis-ci.org/Gigigo-Android-Devs/gigigo-interactorExecutor-library-android.svg?branch=develop)
+[![](https://jitpack.io/v/Gigigo-Android-Devs/gigigo-interactorExecutor-library-android.svg)](https://jitpack.io/#Gigigo-Android-Devs/gigigo-interactorExecutor-library-android)
 
 Execute asynchronous tasks in other thread in interactor 
 
