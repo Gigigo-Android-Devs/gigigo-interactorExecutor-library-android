@@ -1,9 +1,5 @@
 apply plugin: 'java'
 
-apply plugin: 'maven'
-
-group = 'com.github.Gigigo-Android-Devs'
-
 dependencies {
   compile fileTree(dir: 'libs', include: ['*.jar'])
   compile rootProject.ext.modules.interactorExecutorPresentation
