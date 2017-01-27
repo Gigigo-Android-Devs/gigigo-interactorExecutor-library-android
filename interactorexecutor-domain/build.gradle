@@ -6,3 +6,8 @@ dependencies {
 
 sourceCompatibility = "1.7"
 targetCompatibility = "1.7"
+
+apply plugin: 'com.github.dcendents.android-maven' // ADD THIS
+
+group='com.github.Gigigo-Android-Devs'
+
