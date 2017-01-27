@@ -85,12 +85,12 @@ allprojects {
 ```
 ```gradle
 dependencies {
-	        compile 'com.github.Gigigo-Android-Devs:gigigo-interactor-executor-library:1.0.0'
+	        compile 'com.github.Gigigo-Android-Devs:gigigo-interactor-executor-library:1.0.5'
 	}
 ```
 
 ### TODO
-- 
+- Library has to notify user in the middle of a proccess, for example, the remaining time to finish the task.
 
 License
 ----
