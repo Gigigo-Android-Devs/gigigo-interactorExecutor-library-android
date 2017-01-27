@@ -1,2 +1,2 @@
 include ':interactorexecutor-domain', ':interactorexecutor-invoker',
-    ':interactorexecutor-presentation' //, ':app'
+    ':interactorexecutor-presentation' , ':app'
