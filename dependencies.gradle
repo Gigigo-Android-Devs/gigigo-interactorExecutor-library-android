@@ -1,18 +1,24 @@
 allprojects {
   ext {
     libraries = [androidSupportV7    : 'com.android.support:appcompat-v7:23.3.0',
-                 androidSupportDesign: 'com.android.support:design:23.3.0']
+                 androidSupportDesign: 'com.android.support:design:23.3.0',
+                javapoet             : 'com.squareup:javapoet:1.8.0'
+    ]
 
     testLibraries = [mockito          : 'org.mockito:mockito-core:2.0.31-beta',
                      junit            : 'junit:junit:4.12',
                      androidTestRunner: 'com.android.support.test:runner:0.4.1',
                      androidTestRules : 'com.android.support.test:rules:0.4.1',
                      espresso         : 'com.android.support.test.espresso:espresso-core:2.2.1',
-                     mockWebServer    : 'com.squareup.okhttp:mockwebserver:2.6.0']
+                     mockWebServer    : 'com.squareup.okhttp:mockwebserver:2.6.0'
+    ]
 
     modules = [interactorExecutorInvoker : project(":interactorexecutor-invoker"),
                interactorExecutorPresentation : project(":interactorexecutor-presentation"),
-               interactorExecutorDomain : project(":interactorexecutor-domain")]
+               interactorExecutorDomain : project(":interactorexecutor-domain"),
+               threaddecoratedviewCommon : project(":threaddecoratedview-common"),
+               threaddecoratedviewCompiler : project(":threaddecoratedview-compiler"),
+    ]
   }
 }
 

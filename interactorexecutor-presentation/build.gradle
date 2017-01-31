@@ -3,6 +3,7 @@ apply plugin: 'java'
 dependencies {
   compile fileTree(dir: 'libs', include: ['*.jar'])
   compile rootProject.ext.modules.interactorExecutorDomain
+  compile rootProject.ext.modules.threaddecoratedviewCommon
 }
 
 sourceCompatibility = "1.7"
