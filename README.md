@@ -90,7 +90,8 @@ public interface MainView {
 
   void append(String s);
 }
-```java
+```
+
 Where @ThreadDecoratedView annotation indicates the calls to the method in this interface will be done in a new thread. 
 The @NotDecorated annotation indicates this method is executed in the same thread which is called.
 
