@@ -74,7 +74,57 @@ public class InteractorErrorExample implements InteractorError {
 }
 ```
 
+## Change thread
+Change to Ui Thread when interactor task is finished we have to implement the Presenter interface in out presenter class.
+```java
+public class MainPresenter extends Presenter<MainView> 
+```
+
+The interface which implements out main activity have to be like this:
+```java
+@ThreadDecoratedView
+public interface MainView {
+
+  @NotDecorated
+  void initUi();
+
+  void append(String s);
+}
+```java
+Where @ThreadDecoratedView annotation indicates the calls to the method in this interface will be done in a new thread. 
+The @NotDecorated annotation indicates this method is executed in the same thread which is called.
+
+To return to new thread we have to call
+```java
+   getView().append("");
+```
+
+In our Activity we have to attach the view so we have to call
+```java
+   presenter.attachView(this);
+```
+and when the view is attached we have to call in our presenter and initialize all the UI elements
+```java
+@Override public void onViewAttached() {
+    getView().initUi();
+    Log.i(TAG + 2, Thread.currentThread().getName());
+  }
+```
+
 ## Gradle dependency
+```gradle
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:2.1.2'
+    classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+    classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+  }
+}
+```
+
 ```gradle
 allprojects {
 		repositories {
@@ -84,8 +134,12 @@ allprojects {
 	}
 ```
 ```gradle
+apply plugin: 'com.neenbedankt.android-apt'
+
 dependencies {
-	        compile 'com.github.Gigigo-Android-Devs:gigigo-interactor-executor-library:1.0.5'
+	compile 'com.github.Gigigo-Android-Devs.gigigo-interactor-executor-library:interactorexecutor-invoker:1.0.6'
+	apt 'com.github.Gigigo-Android-Devs.gigigo-interactor-executor-library:threaddecoratedview-compiler:1.0.6'
+	compile 'com.github.Gigigo-Android-Devs.gigigo-interactor-executor-library:threaddecoratedview-common:1.0.6'
 	}
 ```
 
