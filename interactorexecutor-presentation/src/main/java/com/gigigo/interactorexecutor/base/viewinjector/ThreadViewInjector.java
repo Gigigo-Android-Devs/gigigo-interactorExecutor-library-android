@@ -17,4 +17,8 @@ public class ThreadViewInjector implements GenericViewInjector {
   @Override public <V> V nullObjectPatternView(V view) {
     return ViewInjector.nullObjectPatternView(view);
   }
+
+  @Override public <V> V injectView(V view, Class<V> viewClass) {
+    return ViewInjector.inject(view, viewClass, threadSpec);
+  }
 }

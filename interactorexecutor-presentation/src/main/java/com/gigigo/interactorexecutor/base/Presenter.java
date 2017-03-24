@@ -24,4 +24,9 @@ public abstract class Presenter<V> {
   }
 
   public abstract void onViewAttached();
+
+  public void attachView(V view, Class<V> viewClass) {
+    this.view = viewInjector.injectView(view, viewClass);
+    onViewAttached();
+  }
 }

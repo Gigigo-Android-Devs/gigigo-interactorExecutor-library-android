@@ -2,7 +2,6 @@ package com.gigigo.threaddecoratedview.views;
 
 import com.gigigo.threaddecoratedview.views.qualifiers.ThreadDecoratedView;
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 
 public class ViewInjector {
 
@@ -15,7 +14,19 @@ public class ViewInjector {
       Class<?> decoratedView = findViewClassWithPrefix(DECORATED_CLASS_PREFIX, viewInterface);
       Constructor<?> constructor = decoratedView.getConstructor(viewInterface, ThreadSpec.class);
       return (T) constructor.newInstance(viewImplementation, mainThreadSpec);
-    } catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return null;
+  }
+
+  public static <T> T inject(T view, Class<T> viewClass, ThreadSpec threadSpec) {
+    try {
+      Class<?> viewInterface = findThreadDecoratedView(view.getClass(), viewClass);
+      Class<?> decoratedView = findViewClassWithPrefix(DECORATED_CLASS_PREFIX, viewInterface);
+      Constructor<?> constructor = decoratedView.getConstructor(viewInterface, ThreadSpec.class);
+      return (T) constructor.newInstance(view, threadSpec);
+    } catch (Exception e) {
       e.printStackTrace();
     }
     return null;
@@ -27,7 +38,7 @@ public class ViewInjector {
       Class<?> decoratedView = findViewClassWithPrefix(NULL_CLASS_PREFIX, viewInterface);
       Constructor<?> constructor = decoratedView.getConstructor();
       return (T) constructor.newInstance();
-    } catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
+    } catch (Exception e) {
       e.printStackTrace();
     }
     return null;
@@ -42,6 +53,23 @@ public class ViewInjector {
     }
     if (implementedViewClass.getSuperclass() != null) {
       return findThreadDecoratedView(implementedViewClass.getSuperclass());
+    }
+    throw new RuntimeException(
+        "Cannot find any View annotated with @" + ThreadDecoratedView.class.getName());
+  }
+
+  private static <T> Class<?> findThreadDecoratedView(Class<?> aClass, Class<T> viewClass) {
+    Class<?>[] viewInterfaces = aClass.getInterfaces();
+    for (Class<?> viewInterface : viewInterfaces) {
+      String sName = viewInterface.getSimpleName();
+      String sName2 = viewClass.getSimpleName();
+      boolean isDecorated = viewInterface.isAnnotationPresent(ThreadDecoratedView.class);
+      if (viewInterface.isAnnotationPresent(ThreadDecoratedView.class) && viewInterface.getSimpleName().equals(viewClass.getSimpleName())) {
+        return viewInterface;
+      }
+    }
+    if (aClass.getSuperclass() != null) {
+      return findThreadDecoratedView(aClass.getSuperclass());
     }
     throw new RuntimeException(
         "Cannot find any View annotated with @" + ThreadDecoratedView.class.getName());
