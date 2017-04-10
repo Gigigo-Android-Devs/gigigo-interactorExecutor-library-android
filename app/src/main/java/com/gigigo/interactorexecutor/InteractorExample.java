@@ -9,7 +9,7 @@ public class InteractorExample implements Interactor<InteractorResponse<Boolean>
 
   @Override public InteractorResponse<Boolean> call() throws Exception {
 
-    for (int i=0; i < 9999; i++) {
+    for (int i=0; i < 999999; i++) {
       System.out.println("Hilo asincrono:" + i);
     }
 
@@ -17,12 +17,15 @@ public class InteractorExample implements Interactor<InteractorResponse<Boolean>
         new BusinessObject<>(true, BusinessError.createOKInstance());
 
     //BusinessObject<Boolean> boBooleanError =
-    //    new BusinessObject<>(null, BusinessError.createKoInstance(""));
+    //    new BusinessObject<>(null, BusinessError.createKOInstance(""));
 
     if (boBoolean.isSuccess()) {
       return new InteractorResponse<>(true);
+      //throw new NullPointerException();
     } else {
       return new InteractorResponse<>(new InteractorErrorExample());
     }
   }
+
+
 }

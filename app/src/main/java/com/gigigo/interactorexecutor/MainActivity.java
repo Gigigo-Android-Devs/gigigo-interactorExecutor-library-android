@@ -46,17 +46,17 @@ public class MainActivity extends AppCompatActivity implements MainView, Seconda
   }
 
   @Override public void initUiForSecondaryView() {
-    textView.setText("TEST-->");
-
-    Log.i(TAG + 3, Thread.currentThread().getName());
-
-    secondaryPresenter.load();
-
-    textView.append(" main start ");
-    for (int i = 0; i < 9999; i++) {
-      System.out.println("Main thread:" + i);
-    }
-    textView.append(" main end ");
+    //textView.setText("TEST-->");
+    //
+    //Log.i(TAG + 3, Thread.currentThread().getName());
+    //
+    //secondaryPresenter.load();
+    //
+    //textView.append(" main start ");
+    //for (int i = 0; i < 9999; i++) {
+    //  System.out.println("Main thread:" + i);
+    //}
+    //textView.append(" main end ");
 
   }
 

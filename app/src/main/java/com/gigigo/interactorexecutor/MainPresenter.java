@@ -30,8 +30,7 @@ public class MainPresenter extends Presenter<MainView> {
         new PriorizableThreadPoolExecutor(CONCURRENT_INTERACTORS, CONCURRENT_INTERACTORS, 0L,
             TimeUnit.MILLISECONDS, blockingQueue, threadFactory);
 
-    interactorInvoker =
-        new InteractorInvokerImp(executorService, new LogExceptionHandler());
+    interactorInvoker = new InteractorInvokerImp(executorService, new LogExceptionHandler());
   }
 
   @Override public void onViewAttached() {
@@ -51,7 +50,6 @@ public class MainPresenter extends Presenter<MainView> {
 
         Log.d(TAG, "onSuccess: " + result);
         getView().append(" async onSuccess ");
-
       }
     }).error(InteractorErrorExample.class, new InteractorResult<InteractorErrorExample>() {
       @Override public void onResult(InteractorErrorExample result) {
