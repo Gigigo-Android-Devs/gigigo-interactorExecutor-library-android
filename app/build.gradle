@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
 
 android {
   compileSdkVersion rootProject.ext.androidCompileSdkVersion
@@ -27,6 +26,7 @@ android {
   lintOptions {
     abortOnError false
   }
+  buildToolsVersion '26.0.2'
 }
 
 dependencies {
@@ -35,7 +35,7 @@ dependencies {
 
   compile rootProject.ext.modules.interactorExecutorInvoker
   compile rootProject.ext.modules.threaddecoratedviewCommon
-  apt rootProject.ext.modules.threaddecoratedviewCompiler
+  annotationProcessor rootProject.ext.modules.threaddecoratedviewCompiler
 
 
   testCompile rootProject.ext.testLibraries.junit
