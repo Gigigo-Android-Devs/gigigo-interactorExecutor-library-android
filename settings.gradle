@@ -1,3 +1,3 @@
 include ':interactorexecutor-domain', ':interactorexecutor-invoker',
-    ':interactorexecutor-presentation',':threaddecoratedview-common', ':threaddecoratedview-compiler',':app'
+    ':interactorexecutor-presentation',':threaddecoratedview-common', ':threaddecoratedview-compiler'//,':app'
 
