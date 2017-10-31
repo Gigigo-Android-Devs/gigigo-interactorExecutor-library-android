@@ -5,6 +5,7 @@ apply from: 'dependencies.gradle'
 buildscript {
   repositories {
     jcenter()
+    google()
   }
   dependencies {
     classpath 'com.android.tools.build:gradle:3.0.0'
@@ -18,7 +19,7 @@ buildscript {
 allprojects {
   ext {
     androidCompileSdkVersion = 23
-    androidBuildToolsVersion = '23.0.2'
+    androidBuildToolsVersion = '26.0.2'
     androidMinSdkVersion = 10
     androidTargetSdkVersion = 23
   }
